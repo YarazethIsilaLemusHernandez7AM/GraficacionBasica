@@ -133,6 +133,7 @@
     var hexagonoVertexColorBuffer;
 
     function initBuffers() {
+
         triangleVertexPositionBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
         var vertices = [
@@ -147,6 +148,7 @@
         triangleVertexColorBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
         var colors = [
+         //r   b   g
         1.0, 0.0, 0.0, 1.0,
         0.0, 1.0, 0.0, 1.0,
         0.0, 0.0, 1.0, 1.0
@@ -161,8 +163,8 @@
              0.0,  2.0,  0.0,//pico
             -1.8,  1.0,  0.0,//lado1
              1.8,  1.0,  0.0,//lado2
-            -1.1,  -1.0,  0.0,//lado1
-	     1.3, -1.0,   0.0//lado2
+            -1.1, -1.0,  0.0,//lado1
+	     1.3, -1.0,  0.0//lado2
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
         squareVertexPositionBuffer.itemSize = 3;
@@ -173,16 +175,15 @@
         for (var i=0; i < 5; i++) {
              colors = colors.concat(    
         // R   G    B            
-      [0.0, 1.0, 0.0, 1.0],//verde
-      [0.0, 0.0, 1.0, 1.0], //azul 
-      [1.0, 1.0, 1.0, 1.0], //blanco
-      [1.0, 0.0, 1.0, 1.0], //rosa
-      [1.0, 0.0, 0.0, 1.0] );//rojo
+      [0.9, 0.9, 0.0, 1.0],//verde
+      [1.0, 1.0, 1.0, 1.0], //morado
+      [0.9, 0.9, 0.0, 1.0], //blanco
+      [0.9, 0.9, 0.0, 1.0], //rosa
+      [0.0, 0.0, 0., 1.0] );//morado
          }
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
         squareVertexColorBuffer.itemSize = 4;
         squareVertexColorBuffer.numItems = 5;
-            
         hexagonoVertexPositionBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, hexagonoVertexPositionBuffer);
         vertices = [
@@ -190,9 +191,9 @@
              0.0,  2.0,  0.0,//pico
             -2.0,  1.0,  0.0,
              2.0,  1.0,  0.0,
-            -2.0,  -1.0, 0.0,
-	     2.0, -1.0,   0.0,
-             0.0, -2.0, 0.0//pico abajo
+            -2.0, -1.0,  0.0,
+	     2.0, -1.0,  0.0,
+             0.0, -2.0,  0.0//pico abajo
              
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
